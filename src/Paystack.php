@@ -65,6 +65,8 @@ class Paystack
         $this->setKey($key);
         $this->setBaseUrl($url);
         $this->setRequestOptions();
+
+        return $this;
     }
 
     /**
