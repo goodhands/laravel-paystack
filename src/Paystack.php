@@ -58,15 +58,17 @@ class Paystack
      */
     protected $authorizationUrl;
 
-    public function __construct($url, $key)
-    {
+    /**
+     * Prepare the package by setting the config files
+     */
+    public function prepare($key, $url){
         $this->setKey($key);
         $this->setBaseUrl($url);
         $this->setRequestOptions();
     }
 
     /**
-     * Get Base Url from Paystack config file
+     * Set Base Url from manually
      */
     public function setBaseUrl($url)
     {

@@ -42,10 +42,7 @@ class PaystackServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('laravel-paystack', function() {
-            
-                $store = $this->app->make(Store::class);
-
-                return new Paystack($store->secrets->secret_key, "");    
+                return new Paystack;    
         });
     }
 
