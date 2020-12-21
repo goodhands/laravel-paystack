@@ -11,6 +11,7 @@
 
 namespace Unicodeveloper\Paystack;
 
+use App\Models\Store;
 use Illuminate\Support\ServiceProvider;
 
 class PaystackServiceProvider extends ServiceProvider
@@ -40,10 +41,11 @@ class PaystackServiceProvider extends ServiceProvider
     */
     public function register()
     {
-        $this->app->bind('laravel-paystack', function () {
+        $this->app->bind('laravel-paystack', function() {
+            
+                $store = $this->app->make(Store::class);
 
-            return new Paystack;
-
+                return new Paystack($store->secrets->secret_key, "");    
         });
     }
 
