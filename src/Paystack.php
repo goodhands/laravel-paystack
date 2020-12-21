@@ -58,27 +58,27 @@ class Paystack
      */
     protected $authorizationUrl;
 
-    public function __construct()
+    public function __construct($url, $key)
     {
-        $this->setKey();
-        $this->setBaseUrl();
+        $this->setKey($key);
+        $this->setBaseUrl($url);
         $this->setRequestOptions();
     }
 
     /**
      * Get Base Url from Paystack config file
      */
-    public function setBaseUrl()
+    public function setBaseUrl($url)
     {
-        $this->baseUrl = Config::get('paystack.paymentUrl');
+        $this->baseUrl = $url;
     }
 
     /**
      * Get secret key from Paystack config file
      */
-    public function setKey()
+    public function setKey($key)
     {
-        $this->secretKey = Config::get('paystack.secretKey');
+        $this->secretKey = $key;
     }
 
     /**
