@@ -61,7 +61,7 @@ class Paystack
     /**
      * Prepare the package by setting the config files
      */
-    public function prepare($key, $url){
+    public function prepare($key){
         $this->setKey($key);
         $this->setBaseUrl(config('providers.payment.paystack.api'));
         $this->setRequestOptions();
